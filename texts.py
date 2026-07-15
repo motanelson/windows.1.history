@@ -1,0 +1,12 @@
+print("\033c\033[47;30m\nget me a .ts textscript file to view")
+a=input().strip()
+f1=open(a,"r")
+ff=f1.read()
+f1.close()
+ff=ff.replace("\\\\","\033[")
+ff=ff.replace("\\n","\n")
+ff=ff.replace("\\r","\r")
+ff=ff.replace("\\t","\t")
+ff=ff.replace("\\a","\a")
+
+print(ff)
