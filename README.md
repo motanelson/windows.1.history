@@ -1,1 +1,1 @@
-data files binary decompiler
+text script a script to print text files on screen 
