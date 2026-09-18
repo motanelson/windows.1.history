@@ -1,5 +1,4 @@
-text script 
-Certainly. The architecture of Windows 1.00 (1985) was much simpler than that of Windows 95, and the concept of "switching between programs" was also quite different.
+ The architecture of Windows 1.00 (1985) was much simpler than that of Windows 95, and the concept of "switching between programs" was also quite different.
 
 1. The Windows 1.00 layer
 
