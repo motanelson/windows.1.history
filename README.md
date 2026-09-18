@@ -207,3 +207,90 @@ GDI handled drawing.
 ---
 
 
+8. And how was the program loaded?
+
+A Windows 1.x application used the NE (New Executable) format, which would also be used by several later versions of 16-bit Windows.
+
+The file contained information about its segments.
+
+For example:
+
+PROGRAMA.EXE
+│
+├── Header
+│
+├── CODE segment
+│
+├── DATA segment
+│
+├── other segments
+│
+└── resources
+
+Windows read this information and loaded the necessary segments into memory.
+
+
+---
+
+9. And Windows 1.00 itself?
+
+It was also composed of modules, rather than simply being one huge monolithic file.
+
+Conceptually:
+
+WIN.COM
+   │
+   ▼
+Windows
+   │
+   ├── KERNEL
+   ├── USER
+   ├── GDI
+   └── other components
+
+These components used the available conventional memory and interacted directly with DOS services and the hardware.
+
+
+---
+
+10. The major difference compared to Windows 95
+
+We can place the two side by side:
+
+WINDOWS 1.00
+
+Application
+    ↓
+KERNEL / USER / GDI
+    ↓
+MS-DOS
+    ↓
+BIOS
+    ↓
+Hardware
+
+8086
+segmented memory
+16-bit
+cooperative multitasking
+
+Whereas in Windows 95:
+
+WINDOWS 95
+
+Win32 Application
+      ↓
+Win32 API
+      ↓
+32/16-bit components
+      ↓
+VxD / DOS
+      ↓
+Hardware
+
+386+
+virtual memory
+32-bit + 16-bit
+much more advanced multitasking
+
+Thus, Windows 1.00 is essentially a graphical and execution layer placed on top of MS-DOS,
