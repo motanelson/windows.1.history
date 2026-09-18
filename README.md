@@ -124,3 +124,86 @@ The application was not simply interrupted by the system at any moment, as would
 
 
 ---
+
+5. So, could Windows 1.00 have multiple programs "open"?
+
+Yes.
+
+You could have several applications loaded, but the way it worked was quite different from modern Windows.
+
+Windows kept track of applications and their resources, and could switch execution between them when they yielded control.
+
+It was more like this:
+
+┌───────────────┐
+        │    Windows    │
+        └───────┬───────┘
+                │
+        decides who runs
+                │
+       ┌────────┼────────┐
+       ▼        ▼        ▼
+    APP A     APP B     APP C
+
+There wasn't the strict separation between processes and memory spaces found in modern NT systems.
+
+
+---
+
+6. What if a program got stuck?
+
+This was one of the issues with the cooperative model.
+
+If an application didn't return control to Windows, it could prevent other applications from getting a chance to run.
+
+Simply put:
+
+Windows
+   │
+   ▼
+Program A
+   │
+   │  "I'm going to keep running..."
+   │
+   ▼
+Program A
+   │
+   └── doesn't return control
+             ↓
+       other programs
+       don't get to run
+
+This is a fundamental difference compared to modern systems.
+
+
+---
+
+7. And the window? Was the window the program?
+
+No.
+
+This is interesting because today we think:
+
+> “I have a window = I have a process.”
+
+
+
+In Windows 1.00, that association isn't correct.
+
+There was a distinction between:
+
+Application
+   │
+   └── window
+        ├── client area
+        ├── title
+        └── menus
+
+USER handled window and event management.
+
+GDI handled drawing.
+
+
+---
+
+
